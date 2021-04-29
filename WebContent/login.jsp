@@ -9,8 +9,9 @@
 <body>
 
 	<form action="/LoginServlet/LoginServlet" method="post">
-		Usuario: <input type="text" name="usuario"> <input
-			type="submit" value="Enviar">
+		Usuario: <input type="text" name="usuario"><br>
+		Contraseña: <input type="password" name="password"><br><br> 
+		<input type="submit" value="Enviar">
 	</form>
 
 </body>

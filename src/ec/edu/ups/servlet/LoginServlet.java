@@ -40,15 +40,19 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession sesion = request.getSession();
+		//HttpSession sesion = request.getSession();
 		String usuario = request.getParameter("usuario");
+		String password = request.getParameter("password");
 		
-		if (usuario.equals("diego")) {
+		if (usuario.equals("diego") && password.equals("diego")){
+			HttpSession sesion = request.getSession(true);
 			sesion.setAttribute("usuario", usuario);
-			
+			System.out.println("sesion TRUE");
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/calculadora.jsp");
 			d.forward(request, response);
 		}else {
+			HttpSession sesion = request.getSession(false);
+			System.out.println("sesion FALSE");
 			RequestDispatcher d = getServletContext().getRequestDispatcher("/errorLogin.jsp");
 			d.forward(request, response);
 			
